@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        body {
+            background: lightBlue;
+        }
+
+        input[type = text] {
+            height: 50px;
+            width: 28.5%;
+            font-size: 24px;
+            box-shadow: 2px 2px;
+            border: solid 4px green;
+        }
+
+        input[type = button] {
+            background: lightGray;
+            width: 5%;
+            height: 50px;
+            font-size: 20px;
+            font-weight: 900;
+            box-shadow: 5px 5px;
+            border: none;
+            border: solid 2px green;
+            border-radius: 7px;
+            margin-left: 9px;
+            margin-top: 9px;
+            outline: none;
+        } 
+
+        .animation1 {}
+
+        .animation1:active {
+            transform: translate(5px, 5px);
+            box-shadow: 0px 0px;
+        }
+
+        .op {
+            background: lightGray;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            font-weight: 900;
+            border-radius: 7px;
+            margin-left: 33px;
+            margin-top: 10px;
+        }
+
+        .op:active {
+            transform: translate(5px, 5px);
+            box-shadow: 0px 0px
+        }
+</style>
+</head>
+<body>
+    <form name = "form1">
+        <div class = "numbers">
+            <div>
+                <input type = "text" name = "input1"><br>
+                <input type = "button" class = "animation1" value = "C/AC" onclick = "form1.input1.value = ''"><br>
+                <input type = "button" class = "animation1" value = "7" onclick = "form1.input1.value += '7'">
+                <input type = "button" class = "animation1" value = "8" onclick = "form1.input1.value += '8'">
+                <input type = "button" class = "animation1" value = "9" onclick = "form1.input1.value += '9'">
+                <input type = "button" class = "animation1" value = "(" onclick = "form1.input1.value += '('">
+                <input type = "button" class = "animation1" value = ")" onclick = "form1.input1.value += ')'"><br>
+                <input type = "button" class = "animation1" value = "4" onclick = "form1.input1.value += '4'">
+                <input type = "button" class = "animation1" value = "5" onclick = "form1.input1.value += '5'">
+                <input type = "button" class = "animation1" value = "6" onclick = "form1.input1.value += '6'">
+                <input type = "button" class = "op" value = "x" onclick = "form1.input1.value += '*'">
+                <input type = "button" class = "op" value = "÷" onclick = "form1.input1.value += '/'"><br>
+                <input type = "button" class = "animation1" value = "1" onclick = "form1.input1.value += '1'">
+                <input type = "button" class = "animation1" value = "2" onclick = "form1.input1.value += '2'">
+                <input type = "button" class = "animation1" value = "3" onclick = "form1.input1.value += '3'">
+                <input type = "button" class = "op" value = "+" onclick = "form1.input1.value += '+'">
+                <input type = "button" class = "op" value = "-" onclick = "form1.input1.value += '-'"><br>
+                <input type = "button" class = "animation1" value = "0" onclick = "form1.input1.value += '0'" style = "width: 11%">
+                <input type = "button" class = "op" value = "." onclick = "form1.input1.value += '.'">
+                <input type = "button" class = "animation1" value = "=" onclick = "form1.input1.value = eval(form1.input1.value)" style = "width: 11%">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
