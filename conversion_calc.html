@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .input_box {
+                border: 2px solid black;
+                border-radius: 5px;
+                /*position: absolute;*/
+                left: 100px;
+                top: 100px;
+                width: 30%;
+                height: 40px;
+                font: 20px/30px Arial sans-serif;
+                background-color: #7B97E2;
+                outline: none;
+                margin: 0px 0px 0px 50px;
+            }
+
+            .from_and_to {
+                font-size: 24px;
+                margin: 30px 0px 30px 50px;
+                color: #ECEEF4;
+            }
+
+            .drp {
+                background-color: #7B97E2;
+                border-radius: 5px;
+                width: 120px;
+                height: 30px;
+                font-size: 16px;
+            }
+
+            .header1 {
+                color: #ECEEF4;
+                text-align: center;
+                font-size: 56px;
+            }
+            .button1 {
+                margin: 0px 0px 0px 320px;
+                width: 100px;
+                height: 60px;
+                font: 24px Arial sans-serif;
+                border: 2px solid black;
+                border-radius: 5px;
+                color: #ECEEF4;
+                background-color: #404657;
+                outline: none;
+            }
+            .button1:active {
+                background-color: #2F3440;
+            }
+        </style>
+    </head>
+    <body style = "background-color: #545457">
+        <form name = "form1">
+            <h1 class = "header1">Universal Converter</h1>
+            <div>
+                <p class = "from_and_to">From: </p>
+                <input type = "text" name = "input1" id = "input1" oninput = "conversion()" class = "input_box">
+                <select class = "drp" name="conv_factor_1" id="conv_factor_1" onchange = "conversion()">
+                    <option value = "" disabled selected hidden >Pick a Unit</option>
+                    <option value="kilometres">Kilometres</option>
+                    <option value="metres">Metres</option>
+                    <option value="centimetres">Centimetres</option>
+                    <option value="millimetres">Millimetres</option>
+                    <option value="micrometres">Micrometres</option>
+                    <option value="nanometres">Nanometres</option>
+                    <option value="miles">Miles</option>
+                    <option value="yards">Yards</option>
+                    <option value="feet">Feet</option>
+                    <option value="inches">Inches</option>
+                </select>
+            </div>
+            <div>
+                <p class = "from_and_to">To: </p>
+                <input type = "text" name = "input2" id = "input2" class = "input_box" readonly>
+                <select class = "drp" name="conv_factor_2" id="conv_factor_2" onchange = "conversion()">
+                    <option value = "" disabled selected hidden >Pick a Unit</option>
+                    <option value="kilometres">Kilometres</option>
+                    <option value="metres">Metres</option>
+                    <option value="centimetres">Centimetres</option>
+                    <option value="millimetres">Millimetres</option>
+                    <option value="micrometres">Micrometres</option>
+                    <option value="nanometres">Nanometres</option>
+                    <option value="miles">Miles</option>
+                    <option value="yards">Yards</option>
+                    <option value="feet">Feet</option>
+                    <option value="inches">Inches</option>
+                </select><br><br>
+            </div>
+            <div>
+                <input type = "reset" value = "CLEAR" name = "clear_input" id = "clear_input" class = "button1">
+            </div>
+        </form>
+    </body>
+    <script>
+        function conversion(){
+            var x = document.forms["form1"]["input1"].value;
+            var n1 = document.forms["form1"]["conv_factor_1"].value;
+            var n2 = document.forms["form1"]["conv_factor_2"].value;
+
+            var items_dict = {
+                "kilometres": 1,
+                "metres": 1000,
+                "centimetres": 100000,
+                "millimetres": 1000000,
+                "micrometres": 1000000000,
+                "nanometres": 1000000000000,
+                "miles": 0.621371,
+                "yards": 1093.61,
+                "feet": 3280.84,
+                "inches": 39370.1
+            };
+
+            /* divide by the first number and multiply by the second */
+
+            for (var key1 in items_dict){
+                var value1 = items_dict[key1];
+                if (key1 == n1){
+                    y1 = value1;
+                    for (var key2 in items_dict){
+                        var value2 = items_dict[key2];
+                        if (key2 == n2){
+                            y2 = value2;
+                            document.forms["form1"]["input2"].value = x / y1 * y2;
+                        }
+                    }
+                }
+            }
+
+            console.log(x)
+            console.log(n1)
+            console.log(n2)
+
+        }
+    </script>
+    <script>
+        /*function clear(){
+            document.getElementById(input1).innerHTML = "";
+            document.getElementById(input2).innerHTML = "";
+        }*/
+    </script>
+</html>
